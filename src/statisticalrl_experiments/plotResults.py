@@ -6,7 +6,7 @@ import sys
 import numpy as np
 
 
-from src.utils import get_project_root_dir
+from src.statisticalrl_experiments.utils import get_project_root_dir
 ROOT= get_project_root_dir()+"/src/"
 
 def plotCumulativeRegrets(learnersName, envName, title, mean, median, quantile1, quantile2, times, timeHorizon, logfile='', timestamp=0,root_folder=ROOT):

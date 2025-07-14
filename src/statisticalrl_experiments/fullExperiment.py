@@ -1,12 +1,12 @@
-import src.oneRun as oR
-import src.parallelRuns as pR
-import src.analyzeRuns as aR
-import src.plotResults as plR
+import src.statisticalrl_experiments.oneRun as oR
+import src.statisticalrl_experiments.parallelRuns as pR
+import src.statisticalrl_experiments.analyzeRuns as aR
+import src.statisticalrl_experiments.plotResults as plR
 
 import time
 import numpy as np
 
-from src.utils import get_project_root_dir
+from src.statisticalrl_experiments.utils import get_project_root_dir
 ROOT= get_project_root_dir()+"/src/results"
 
 def runLargeMulticoreExperiment(env, agents, oracle, timeHorizon=1000, nbReplicates=100, root_folder=ROOT):

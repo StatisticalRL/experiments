@@ -1,8 +1,8 @@
-from src.fullExperiment import runLargeMulticoreExperiment
+from src.statisticalrl_experiments.fullExperiment import runLargeMulticoreExperiment
 
 #######################
 # Import registered environments
-import environments.lib as bW
+import statisticalrl_environments as bW
 #######################
 
 
@@ -13,10 +13,10 @@ env = bW.make('river-swim-6')
 
 
 # Import some learners
-import learners.Generic.Qlearning as ql
-import learners.MDPs_discrete.UCRL3 as ucrl3
-import learners.MDPs_discrete.IMED_RL as imedrl
-import learners.MDPs_discrete.Optimal.OptimalControl  as opt
+import statisticalrl_learners.Generic.Qlearning as ql
+import statisticalrl_learners.MDPs_discrete.UCRL3 as ucrl3
+import statisticalrl_learners.MDPs_discrete.IMED_RL as imedrl
+import statisticalrl_learners.MDPs_discrete.Optimal.OptimalControl  as opt
 #######################
 # Instantiate a few learners to be compared:
 agents = []
@@ -36,7 +36,7 @@ oracle = opt.build_opti(env.name, env, env.observation_space.n, env.action_space
 # Run a full experiment
 #######################
 import os
-from src.utils import get_project_root_dir
+from src.statisticalrl_experiments.utils import get_project_root_dir
 ROOT= get_project_root_dir()+"/main/templates/"+"generictemplate"+"_results/"
 os.makedirs(ROOT,exist_ok=True)
 

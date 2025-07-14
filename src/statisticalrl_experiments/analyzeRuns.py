@@ -4,7 +4,7 @@ import time
 import numpy as np
 
 
-from src.utils import get_project_root_dir
+from src.statisticalrl_experiments.utils import get_project_root_dir
 ROOT= get_project_root_dir()+"/src/"
 
 def computeCumulativeRegrets(names, dump_cumulativerewards_, timeHorizon, envName, root_folder):

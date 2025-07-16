@@ -31,19 +31,20 @@ Experimentations with Learning Agents run on Statistial Reinforcement Learning e
     
     #######################
     # Import some learners
-    from statisticalrl_learners.MDPs_discrete.UCRL3 import UCRL3_lazy as ucrl3
+    from statisticalrl_learners.Generic.Random import Random as rd
     from statisticalrl_learners.Generic.Qlearning import Qlearning as ql
+    from statisticalrl_learners.MDPs_discrete.UCRL3 import UCRL3_lazy as ucrl3
     from statisticalrl_learners.MDPs_discrete.IMED_RL import IMEDRL as imedrl
     import statisticalrl_learners.MDPs_discrete.Optimal.OptimalControl  as opt
+    
     #######################
     # List a few learners to be compared:
     agents = []
-    delta=0.05
-    #agents.append( [random.Random, {"env": env.env}])
+    agents.append( [rd, {"env": env}])
     agents.append( [ql, {"nS":nS, "nA":nA}])
-    agents.append( [ucrl3, {"nS":nS, "nA":nA, "delta":delta}])
+    agents.append( [ucrl3, {"nS":nS, "nA":nA, "delta":0.05}])
     agents.append(([imedrl, {"nbr_states":nS, "nbr_actions":nA}]))
-    
+        
     #############################
     # Compute oracle policy:
     oracle = opt.build_opti(env.name, env, env.observation_space.n, env.action_space.n)

@@ -6,9 +6,11 @@ import sys
 import numpy as np
 
 
-from src.statisticalrl_experiments.utils import get_project_root_dir
-ROOT= get_project_root_dir()+"/src/"
+# from src.statisticalrl_experiments.utils import get_project_root_dir
+# ROOT= get_project_root_dir()+"/src/"
 
+
+ROOT= "results/"
 def plotCumulativeRegrets(learnersName, envName, title, mean, median, quantile1, quantile2, times, timeHorizon, logfile='', timestamp=0,root_folder=ROOT):
     if (logfile==''):
         logfile=sys.stdout
@@ -94,8 +96,12 @@ def plot_results_from_dump(cumRegretfiles, tplot,folder="results/",logfile='', r
         quantile1.append([q[i] for i in range(len(q)) if i*skip<tplot])
         q = np.quantile(data_j, 0.75, axis=0)
         quantile2.append([q[i] for i in range(len(q)) if i*skip<tplot])
+        mean= []
+        import time
+        timestamp = str(time.time())
 
-    plotCumulativeRegrets(learnerNames, envName, median, quantile1, quantile2, times, tplot, logfile=logfile, root_folder=root_folder)
+    plotCumulativeRegrets(learnerNames, envName, envName, mean, median, quantile1, quantile2, times, tplot,
+                          logfile=logfile, timestamp=timestamp, root_folder=root_folder)
 
 
 def search_dump_cumRegretfiles(regName,root_folder=ROOT):

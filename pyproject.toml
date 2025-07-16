@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "statisticalRL-experiments"
-version = "1.2025.07a"
-description = "Experimentation backbon for the Statistical Reinforcement Learning project"
+version = "1.20250716.1"
+description = "Experimentation backbone for the Statistical Reinforcement Learning project"
 authors = [{ name = "Odalric-Ambym Maillard", email = "odalric.maillard@inria.fr" }]
 readme = "README.md"
 license = { text = "MIT" }
@@ -15,8 +15,8 @@ dependencies = [
     "numpy==1.24.3",
     "joblib==1.3.2",
     "matplotlib==3.7.2",
-    "statisticalRL-environments=1.2025.07a",
-    "statisticalRL-learners=1.2025.07a"
+    "statisticalRL-environments=1.20250716.6",
+    "statisticalRL-learners=1.20250716.1"
 ]
 #Also default packages: time,os,pickle,pathlib,multiprocessing,inspect
 
@@ -26,4 +26,6 @@ Homepage = "https://github.com/StatisticalRL/experiments"
 
 [tool.setuptools]
 package-dir = { "" = "src" }
-packages = ["statisticalrl_experiments"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

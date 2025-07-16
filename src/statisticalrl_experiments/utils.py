@@ -6,12 +6,13 @@ from inspect import FrameInfo
 from pathlib  import Path
 
 
+
 def get_project_root_dir() -> str:
     path= os.path.dirname(os.path.abspath("../__init__.py"))
-    ps=path.split('statistical-reinforcement-learning')
+    ps=path.split('statisticalrl_experiments')
     #print(ps)
     #print(ps[0]+'statistical-reinforcement-learning\\')
-    return ps[0]+'statistical-reinforcement-learning\\' # Remove \\ for linux systems
+    return ps[0]+'\statisticalrl_experiments\\' # Remove \\ for linux systems
 
 def get_project_root_dir2() -> str:
     """

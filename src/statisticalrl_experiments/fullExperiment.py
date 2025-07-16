@@ -1,15 +1,22 @@
-import src.statisticalrl_experiments.oneRun as oR
-import src.statisticalrl_experiments.parallelRuns as pR
-import src.statisticalrl_experiments.analyzeRuns as aR
-import src.statisticalrl_experiments.plotResults as plR
+import statisticalrl_experiments.oneRun as oR
+import statisticalrl_experiments.parallelRuns as pR
+import statisticalrl_experiments.analyzeRuns as aR
+import statisticalrl_experiments.plotResults as plR
 
 import time
 import numpy as np
 
-from src.statisticalrl_experiments.utils import get_project_root_dir
-ROOT= get_project_root_dir()+"/src/results"
+#from src.statisticalrl_experiments.utils import get_project_root_dir
+#ROOT= get_project_root_dir()+"/src/results"
+import os
+ROOT="results/"
 
 def runLargeMulticoreExperiment(env, agents, oracle, timeHorizon=1000, nbReplicates=100, root_folder=ROOT):
+    try:
+        os.mkdir(root_folder)
+    except:
+        ()
+
     envFullName= env.name
 
     #opti_learner=opt.build_opti(envFullName, env.env, env.observation_space.n, env.action_space.n)
@@ -50,7 +57,7 @@ def runLargeMulticoreExperiment(env, agents, oracle, timeHorizon=1000, nbReplica
 
 
 
-import learners.MDPs_discrete.Optimal.OptimalControl  as opt
+import statisticalrl_learners.MDPs_discrete.Optimal.OptimalControl  as opt
 def runBayesianExperiment(name, envs, agents, timeHorizon=1000, nbReplicates=100, root_folder=ROOT):
 
     #TODO : This does not work !! Strangely enough the last xp gives correct output, but not previous ones, seems like a ref problem.

@@ -5,14 +5,6 @@ Experimentations with Learning Agents run on Statistial Reinforcement Learning e
 ## Installation
     pip install statisticalRL-experiments
 
-# Dependencies
-    "gymnasium==1.2",
-    "numpy==1.24.3",
-    "joblib==1.3.2",
-    "matplotlib==3.7.2",
-    "statisticalRL-environments==1.20250716.6",
-    "statisticalRL-learners==1.20250716.1"
-
 # Usage
 
 

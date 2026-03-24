@@ -23,8 +23,11 @@ def plotCumulativeRegrets(learnersName, envName, title, mean, median, quantile1,
      '#999999', '#e41a1c', '#dede00']
 
     style = ['o','v','s','d','<']
+    m,M=0,0
     pl.title(title)
     for i in range(len(median)):
+        m=min(m,min(median[i]))
+        M=max(M,max(median[i]))
         pl.plot(times, median[i], style[i% len(style)], label=learnersName[i], color=colors[i % len(colors)], linewidth=2.0, linestyle='--', markevery=0.05)
         #pl.plot(times,median[i], color=colors[i % len(colors)],linestyle=':',linewidth=0.8)
         pl.plot(times,quantile1[i], color=colors[i % len(colors)],linestyle=':',linewidth=0.6)
@@ -39,7 +42,7 @@ def plotCumulativeRegrets(learnersName, envName, title, mean, median, quantile1,
     pl.ylabel("Regret Tg*-sum_t r_t", fontsize=13, fontname = "Arial")
     #pl.xticks(times)
     pl.ticklabel_format(axis='both', useMathText = True, useOffset = True, style='sci', scilimits=(0, 0))
-    pl.ylim(0)
+    pl.ylim([0,M])
     pl.savefig(textfile+'.png')
     pl.savefig(textfile+ '.pdf')
     # pl.xscale('log')
@@ -50,6 +53,7 @@ def plotCumulativeRegrets(learnersName, envName, title, mean, median, quantile1,
         pl.xlim(10,timeHorizon)
     pl.xscale('linear')
     pl.yscale('log')
+    pl.ylim([0,M])
     pl.savefig(textfile + '_ylog.png')
     pl.savefig(textfile + '_ylog.pdf')
     # pl.xscale('log')

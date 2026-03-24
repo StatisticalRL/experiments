@@ -5,8 +5,10 @@ from statisticalrl_experiments.fullExperiment import runLargeMulticoreExperiment
 import statisticalrl_environments.register as bW
 #######################
 
+#bW.print_envlist()
 # Instantiate one environment
-env = bW.make('river-swim-6')
+env = bW.make('grid-random-88')
+#'river-swim-6', 'grid-random-88', 'grid-4-room'
 nS = env.observation_space.n
 nA = env.action_space.n
 
@@ -15,6 +17,10 @@ nA = env.action_space.n
 # Import some learners
 from statisticalrl_learners.Generic.Random import Random as rd
 from statisticalrl_learners.Generic.Qlearning import Qlearning as ql
+from statisticalrl_learners.MDPs_discrete.UCRL2 import UCRL2 as ucrl2
+from statisticalrl_learners.MDPs_discrete.UCRL2B import UCRL2B as ucrl2b
+from statisticalrl_learners.MDPs_discrete.KLUCRL import KLUCRL as klucrl
+from statisticalrl_learners.MDPs_discrete.PSRL import PSRL as psrl
 from statisticalrl_learners.MDPs_discrete.UCRL3 import UCRL3_lazy as ucrl3
 from statisticalrl_learners.MDPs_discrete.IMED_RL import IMEDRL as imedrl
 import statisticalrl_learners.MDPs_discrete.Optimal.OptimalControl  as opt
@@ -24,6 +30,8 @@ import statisticalrl_learners.MDPs_discrete.Optimal.OptimalControl  as opt
 agents = []
 agents.append( [rd, {"env": env}])
 agents.append( [ql, {"nS":nS, "nA":nA}])
+agents.append( [ucrl2, {"nS":nS, "nA":nA, "delta":0.05}])
+agents.append( [psrl, {"nS":nS, "nA":nA, "delta":0.05}])
 agents.append( [ucrl3, {"nS":nS, "nA":nA, "delta":0.05}])
 agents.append(([imedrl, {"nbr_states":nS, "nbr_actions":nA}]))
 

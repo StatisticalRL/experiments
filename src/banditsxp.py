@@ -9,11 +9,10 @@ print_registered_environments()
 # random_environment()
 # all_environments()
 
-from statisticalrl_experiments.fullExperiment import runLargeMulticoreExperiment as xp
+from statisticalrl_experiments.MDPs.massiveRuns import runLargeMulticoreExperiment as xp
 
 #######################
 # Import registered environments
-import statisticalrl_environments.register as bW
 
 #######################
 
@@ -31,14 +30,14 @@ from statisticalrl_learners.MABs.UCB import UCB as ucb
 #from statisticalrl_learners.MABs.FTL import FTL as ftl
 from statisticalrl_learners.MABs.TS import TS as ts
 from statisticalrl_learners.MABs.IMED import IMED as imed
-from statisticalrl_learners.MABs.utils import klBern
+from statisticalrl_learners.Generic.utils import klBern
 from statisticalrl_learners.MABs.Oracle import Oracle as ord
 
 #######################
 # List a few learners to be compared:
 agents = []
 agents.append([rd, {"env": env}])
-agents.append([ts, {"nbArms": nA}])
+#agents.append([ts, {"nbArms": nA}])
 agents.append([ucb, {"nbArms": nA, "delta": lambda t: 0.05}])
 agents.append(([imed, {"nbArms":nA,"kullback":klBern}]))
 

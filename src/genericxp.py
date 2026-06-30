@@ -10,7 +10,7 @@ print_registered_environments()
 # random_environment()
 # all_environments()
 
-from statisticalrl_experiments.fullExperiment import runLargeMulticoreExperiment as xp
+from statisticalrl_experiments.MDPs.massiveRuns import runLargeMulticoreExperiment as xp
 
 #######################
 # Import registered environments

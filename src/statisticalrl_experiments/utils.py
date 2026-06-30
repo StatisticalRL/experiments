@@ -4,8 +4,20 @@ import os
 import inspect
 from inspect import FrameInfo
 from pathlib  import Path
+import pickle
 
+def dump(values, filename, tag, root_folder):
+    filenameM = root_folder + filename + "_" + tag
+    file = open(filenameM, 'wb')
+    file.truncate(0)
+    pickle.dump(values, file)
+    file.close()
+    return filenameM
 
+def clear_auxiliaryfiles(env, root_folder):
+    for file in os.listdir(root_folder):
+        if file.startswith("cumMeans_" + env.name) or file.startswith("cumGaps_" + env.name):
+            os.remove(root_folder + file)
 
 def get_project_root_dir() -> str:
     path= os.path.dirname(os.path.abspath("../__init__.py"))

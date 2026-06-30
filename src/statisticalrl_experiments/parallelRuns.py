@@ -26,5 +26,3 @@ def multicoreRuns(envRegisterName, learner, nbReplicates, timeHorizon, oneRunFun
 
     elapsed = time.time()-t0
     return cumRewards, elapsed / nbReplicates
-
-

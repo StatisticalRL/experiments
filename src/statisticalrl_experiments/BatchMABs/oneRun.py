@@ -51,7 +51,6 @@ def oneRunOptWithDump(env, opti_learner, timeHorizon, root_folder):
     cummeanreward_opti = oneXpNoRender(env, opti_learner, opttimeHorizon, root_folder=root_folder)
     #gain =  cummeanreward_opti[-1] / len(cummeanreward_opti)
     #print("Average gain is ", gain)
- # TODO: remove one [] and update computeCumulativeRegrets accordingly.
     #opti_cumgain = [[t * gain for t in range(timeHorizon)]]
     opti_cumgain = [cummeanreward_opti]
 

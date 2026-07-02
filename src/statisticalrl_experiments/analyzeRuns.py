@@ -33,6 +33,7 @@ def computeCumulativeRegrets(names, dump_cumulativerewards_, timeHorizon, envNam
         for i in range(len(dump_cumulativerewards_[j])):
             file_oracle = open(dump_cumulativerewards_[-1], 'rb')
             cum_rewards_oracle = pickle.load(file_oracle)
+            # Comment the following line for BatchMabs:
             cum_rewards_oracle = cum_rewards_oracle[0]
             file = open(dump_cumulativerewards_[j][i], 'rb')
             cum_rewards_ij = pickle.load(file)

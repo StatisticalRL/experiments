@@ -10,11 +10,7 @@ import os
 ROOT="results/"
 
 def runLargeBatchMulticoreExperiment(env, agents, oracle, timeHorizon=1000,  opttimeHorizon= 10000, nbReplicates=100, root_folder=ROOT):
-    try:
-        os.mkdir(root_folder)
-    except:
-        ()
-
+    os.mkdir(root_folder)
     envFullName = env.name
 
     # opti_learner=opt.build_opti(envFullName, env.env, env.observation_space.n, env.action_space.n)

@@ -20,11 +20,11 @@ def runLargeMulticoreExperiment(env, agents, oracle, timeHorizon=1000, opttimeHo
     :param root_folder:
     :return:
     '''
-    try:
-        os.mkdir(root_folder)
-    except:
-        ()
-
+    #try:
+    #    os.mkdir(root_folder)
+    #except:
+    #    ()
+    os.mkdir(root_folder)
     envFullName= env.name
 
     #opti_learner=opt.build_opti(envFullName, env.env, env.observation_space.n, env.action_space.n)

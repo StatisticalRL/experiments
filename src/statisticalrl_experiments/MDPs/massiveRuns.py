@@ -20,10 +20,7 @@ def runLargeMulticoreExperiment(env, agents, oracle, timeHorizon=1000, opttimeHo
     :param root_folder:
     :return:
     '''
-    try:
-        os.mkdir(root_folder)
-    except:
-        ()
+    os.mkdir(root_folder)
 
     envFullName= env.name
 

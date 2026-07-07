@@ -20,7 +20,12 @@ def runLargeMulticoreExperiment(env, agents, oracle, timeHorizon=1000, opttimeHo
     :param root_folder:
     :return:
     '''
-    os.mkdir(root_folder)
+    # The following harness is used so that in case the root_folder already exists, the os does not through an error.
+    # So we try to make a new repo, but if it already exists, we simply do nothing.
+    try:
+        os.mkdir(root_folder)
+    except:
+        ()
 
     envFullName= env.name
 
